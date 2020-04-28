@@ -12,11 +12,12 @@ for _kv in $(env); do
     fi
 done
 
-test -v GIT_AUTHOR_NAME || export GIT_AUTHOR_NAME=drone
-test -v GIT_AUTHOR_EMAIL || export GIT_AUTHOR_EMAIL=drone@localhost
-test -v GIT_COMMITTER_NAME || export GIT_COMMITTER_NAME=drone
-test -v GIT_COMMITTER_EMAIL || export GIT_COMMITTER_EMAIL=drone@localhost
-#test -v EMAIL || export EMAIL=drone@localhost
+test -v DRONE_COMMIT_AUTHOR_NAME || export DRONE_COMMIT_AUTHOR_NAME=drone
+test -v DRONE_COMMIT_AUTHOR_EMAIL || export DRONE_COMMIT_AUTHOR_EMAIL=drone@localhost
+test -v GIT_AUTHOR_NAME || export GIT_AUTHOR_NAME=$DRONE_COMMIT_AUTHOR_NAME
+test -v GIT_AUTHOR_EMAIL || export GIT_AUTHOR_EMAIL=$DRONE_COMMIT_AUTHOR_EMAIL
+test -v GIT_COMMITTER_NAME || export GIT_COMMITTER_NAME=$DRONE_COMMIT_AUTHOR_NAME
+test -v GIT_COMMITTER_EMAIL || export GIT_COMMITTER_EMAIL=$DRONE_COMMIT_AUTHOR_EMAIL
 
 test -f CHANGELOG.md || _params+=("--first-release")
 echo "standard-version ${_params[@]} $@"
