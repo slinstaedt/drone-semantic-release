@@ -1,6 +1,15 @@
 # Changelog
+## [1.1.0](https://github.com/slinstaedt/drone-semantic-release/compare/v1.0.1...v1.1.0) (2020-05-06)
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### Features
+
+* enable drone env parameters ([712753a](https://github.com/slinstaedt/drone-semantic-release/commit/712753a76b596ab3757768f44a0abab1d67a6de3))
+
+
+### Documentation
+
+* add note about calling via environment ([3f232f6](https://github.com/slinstaedt/drone-semantic-release/commit/3f232f664d0be768515e97340cbe61a09a306575))
 
 ### [1.0.1](https://github.com/slinstaedt/drone-semantic-release/compare/v1.0.0...v1.0.1) (2020-04-28)
 
