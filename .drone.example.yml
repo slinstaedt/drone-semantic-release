@@ -1,0 +1,11 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: release
+  image: kamalook/drone-semantic-release
+  pull: if-not-exists
+  settings:
+    dry-run: true
+    issue_prefixes: '#'

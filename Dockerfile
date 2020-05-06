@@ -1,6 +1,7 @@
 FROM node:lts-alpine
 
-RUN apk add --no-cache bash sed git
+COPY --from=kamalook/drone-plugin-base /usr/local/bin/* /usr/local/bin/
+RUN apk add --no-cache git
 RUN npm install -g standard-version
 
 COPY docker-entrypoint.sh /usr/local/bin/
