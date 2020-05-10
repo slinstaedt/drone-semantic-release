@@ -8,7 +8,7 @@ function checkDefaults {
 checkDefaults DRONE_COMMIT_AUTHOR_NAME drone
 checkDefaults DRONE_COMMIT_AUTHOR_EMAIL drone@localhost
 
-for _e in $(env2args); do export $_e; done
+for _env in $(env2args); do export $_env; done
 checkDefaults GIT_AUTHOR_NAME "$DRONE_COMMIT_AUTHOR_NAME"
 checkDefaults GIT_AUTHOR_EMAIL "$DRONE_COMMIT_AUTHOR_EMAIL"
 checkDefaults GIT_COMMITTER_NAME "$DRONE_COMMIT_AUTHOR_NAME"
@@ -25,7 +25,6 @@ _params="$_params $(env2args noop '--sign' PLUGIN_SIGN)"
 echo "standard-version $@ $_params"
 standard-version $@ $_params
 
-checkDefaults PUSH false
-if [[ "$PUSH" = true ]]; then
+if [[ "${PUSH:-false}" = true ]]; then
     git push --follow-tags
 fi
