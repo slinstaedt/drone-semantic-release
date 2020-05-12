@@ -15,5 +15,5 @@ echo "standard-version $@ $_params"
 standard-version $@ $_params
 if test -n "${DRONE_WORKSPACE:-}" && test "${PLUGIN_PUSH_SKIP:-}" != "true"; then
 	git push
-	git push --follow-tags
+	git push --tags
 fi
