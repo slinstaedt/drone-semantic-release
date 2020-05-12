@@ -1,4 +1,18 @@
 # Changelog
+## [1.2.0](https://github.com/slinstaedt/drone-semantic-release/compare/v1.1.0...v1.2.0) (2020-05-12)
+
+
+### Features
+
+* push if pipeline build ([a730658](https://github.com/slinstaedt/drone-semantic-release/commit/a73065883e3beadf4f2f3d9ca34fd0487456f585))
+* push tags after release ([f96dd67](https://github.com/slinstaedt/drone-semantic-release/commit/f96dd67034c933b577165bec2f1cb1a9afce1c66))
+
+
+### Bug Fixes
+
+* enable git over ssh ([b1be584](https://github.com/slinstaedt/drone-semantic-release/commit/b1be58463a2da66fd3415cf7e86c69cf047b2f0b))
+* inverse push skipping ([c7d099e](https://github.com/slinstaedt/drone-semantic-release/commit/c7d099e5b8bd534d5a45fe09d2a75cf683fad881))
+
 ## [1.1.0](https://github.com/slinstaedt/drone-semantic-release/compare/v1.0.1...v1.1.0) (2020-05-06)
 
 
