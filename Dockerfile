@@ -1,7 +1,6 @@
-FROM node:lts-alpine
+FROM kamalook/drone-git-ssh
 
-COPY --from=kamalook/drone-plugin-base /usr/local/bin/* /usr/local/bin/
-RUN apk add --no-cache git openssh-client
+RUN apk add --no-cache npm
 RUN npm install -g standard-version
 
 COPY docker-entrypoint.sh /usr/local/bin/

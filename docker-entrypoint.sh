@@ -1,18 +1,7 @@
 #!/bin/sh
 set -euo pipefail
 
-function checkDefaults {
-    env | grep -q "^$1=" || export $1="$2"
-}
-
-checkDefaults DRONE_COMMIT_AUTHOR_NAME drone
-checkDefaults DRONE_COMMIT_AUTHOR_EMAIL drone@localhost
-
-for _env in $(env2args); do export $_env; done
-checkDefaults GIT_AUTHOR_NAME "$DRONE_COMMIT_AUTHOR_NAME"
-checkDefaults GIT_AUTHOR_EMAIL "$DRONE_COMMIT_AUTHOR_EMAIL"
-checkDefaults GIT_COMMITTER_NAME "$DRONE_COMMIT_AUTHOR_NAME"
-checkDefaults GIT_COMMITTER_EMAIL "$DRONE_COMMIT_AUTHOR_EMAIL"
+source git-env-setup.sh
 
 #test -f CHANGELOG.md || _params+=("--first-release")
 
@@ -24,7 +13,4 @@ _params="$_params $(env2args noop '--sign' PLUGIN_SIGN)"
 
 echo "standard-version $@ $_params"
 standard-version $@ $_params
-
-if [[ "${PUSH:-false}" = true ]]; then
-    git push --follow-tags
-fi
+test "${PLUGIN_PUSH_SKIP:-}" = "true" && git push --follow-tags
