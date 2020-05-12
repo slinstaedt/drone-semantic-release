@@ -13,4 +13,4 @@ _params="$_params $(env2args noop '--sign' PLUGIN_SIGN)"
 
 echo "standard-version $@ $_params"
 standard-version $@ $_params
-test "${PLUGIN_PUSH_SKIP:-}" = "true" || git push --follow-tags
+test -n "${DRONE_WORKSPACE:-}" && test "${PLUGIN_PUSH_SKIP:-}" != "true" && git push --follow-tags
