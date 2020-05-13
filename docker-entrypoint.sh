@@ -13,7 +13,7 @@ _params=""
 _params="$_params $(env2args camel '--$k "$v"' PLUGIN_SR_)"
 
 
-_msg=${DRONE_COMMIT_MESSAGE:-}
+_msg=${DRONE_COMMIT_MESSAGE:-''}
 _prefix=${PLUGIN_SKIP_ON_COMMIT_PREFIX:-'chore(release)'}
 if test "${_msg:0:${#_prefix}}" != "$_prefix"; then
 	echo "standard-version $@ $_params"
