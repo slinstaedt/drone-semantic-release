@@ -1,4 +1,23 @@
 # Changelog
+## [1.3.0](https://github.com/slinstaedt/drone-semantic-release/compare/v1.2.0...v1.3.0) (2020-05-13)
+
+
+### Features
+
+* enable more parameters ([c6bf2a9](https://github.com/slinstaedt/drone-semantic-release/commit/c6bf2a91bcec2b6af941ab68fc07118e3a3add87))
+* skip release on commit message prefix ([bb8de6b](https://github.com/slinstaedt/drone-semantic-release/commit/bb8de6bc8a395c8925c6ebf1de8df33995d010d9))
+
+
+### Bug Fixes
+
+* pushing tags ([d8a0a77](https://github.com/slinstaedt/drone-semantic-release/commit/d8a0a775eca815fcb6cecce058bb30d0de27b5e9))
+* try pushing commit and tag separately ([7dd8d1f](https://github.com/slinstaedt/drone-semantic-release/commit/7dd8d1f1147542d764cf8c3d89e89f34beed8864))
+
+
+### Refactoring
+
+* clarify default value ([110e6da](https://github.com/slinstaedt/drone-semantic-release/commit/110e6da62cbc5ef40aec1a4d0b4243f9a47bf494))
+
 ## [1.2.0](https://github.com/slinstaedt/drone-semantic-release/compare/v1.1.0...v1.2.0) (2020-05-12)
 
 
