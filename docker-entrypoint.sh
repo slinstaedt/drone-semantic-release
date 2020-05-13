@@ -13,9 +13,16 @@ _params=""
 _params="$_params $(env2args camel '--$k "$v"' PLUGIN_SR_)"
 
 
-echo "standard-version $@ $_params"
-standard-version $@ $_params
-if test -n "${DRONE_WORKSPACE:-}" && test "${PLUGIN_PUSH_SKIP:-}" != "true"; then
-	git push
-	git push --tags
+_msg=${DRONE_COMMIT_MESSAGE:-}
+_prefix=${PLUGIN_SKIP_ON_COMMIT_PREFIX:-'chore(release)'}
+if test "${_msg:0:${#_prefix}}" != "$_prefix"; then
+	echo "standard-version $@ $_params"
+	standard-version $@ $_params
+	if test -n "${DRONE_WORKSPACE:-}" && test "${PLUGIN_PUSH_SKIP:-}" != "true"; then
+		git push
+		git push --follow-tags
+	fi
+else
+	# Bitbucket ignores [SKIP CI]
+	echo "Skipping release for commit: $_msg"
 fi
