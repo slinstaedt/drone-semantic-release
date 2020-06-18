@@ -18,7 +18,7 @@ _prefix=${PLUGIN_SKIP_ON_COMMIT_PREFIX:-'chore(release)'}
 if test "${_msg:0:${#_prefix}}" != "$_prefix"; then
 	echo "standard-version $@ $_params"
 	standard-version $@ $_params
-	if test -n "${DRONE_WORKSPACE:-}" && test "${PLUGIN_PUSH_SKIP:-}" != "true"; then
+	if test -n "${DRONE_WORKSPACE:-}" && test "${PLUGIN_SKIP_PUSH:-}" != "true"; then
 		git push
 		git push --follow-tags
 	fi
