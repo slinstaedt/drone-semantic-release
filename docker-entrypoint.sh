@@ -20,7 +20,8 @@ if test "${_msg:0:${#_prefix}}" != "$_prefix" && test -n "${DRONE_WORKSPACE:-}";
 		push)
 			echo "standard-version $@ $_params"
 			standard-version $@ $_params
-			git push --follow-tags
+			git push
+			git push --tags
 			;;
 		prepare)
 			echo "standard-version $@ $_params"
@@ -30,7 +31,8 @@ if test "${_msg:0:${#_prefix}}" != "$_prefix" && test -n "${DRONE_WORKSPACE:-}";
 		perform)
 			_branch=$(git for-each-ref --format='%(objectname) %(refname:short)' refs/heads | awk "/^$(git rev-parse HEAD)/ {print \$2}")
 			git checkout $_branch
-			git push --follow-tags
+			git push
+			git push --tags
 			;;
 	esac
 else

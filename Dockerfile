@@ -1,4 +1,4 @@
-FROM kamalook/drone-git-ssh
+FROM dronee/git-ssh
 
 RUN apk add --no-cache npm
 RUN npm install -g standard-version
